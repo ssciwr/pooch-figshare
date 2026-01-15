@@ -49,7 +49,7 @@ docs = [
 # options. For a full reference of available options, check the overview
 # at https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
 [tool.setuptools.packages.find]
-where = ["src"]
+where = ["pooch_figshare"]
 
 # Configure setuptools_scm, which extracts the version number from
 # the version control system. For more information see its documentation:
@@ -57,7 +57,7 @@ where = ["src"]
 [tool.setuptools_scm]
 version_scheme = "post-release"
 local_scheme = "node-and-date"
-write_to = "src/pooch_figshare/_version.py"
+write_to = "pooch_figshare/_version.py"
 
 # The following is the configuration for the pytest test suite
 [tool.pytest.ini_options]
