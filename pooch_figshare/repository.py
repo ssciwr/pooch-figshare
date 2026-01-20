@@ -1,6 +1,22 @@
 from pooch_doi import DataRepository
 
 class FigshareRepository(DataRepository):  # pylint: disable=missing-class-docstring
+    @property
+    def name(self) -> str:
+        """
+        The display name of the repository.
+        """
+        return "Figshare"  # pragma: no cover
+
+    @property
+    def homepage(self) -> str:
+        """
+        The homepage URL of the repository.
+        This could be the URL of the actual service or the URL of the project,
+        if it is a data repository that allows self-hosting.
+        """
+        return "placeholder"  # pragma: no cover
+    
     def __init__(self, doi, archive_url):
         self.archive_url = archive_url
         self.doi = doi
@@ -23,8 +39,8 @@ class FigshareRepository(DataRepository):  # pylint: disable=missing-class-docst
             The resolved URL for the DOI
         """
         # Check whether this is a Figshare URL
-        parsed_archive_url = parse_url(archive_url)
-        if parsed_archive_url["netloc"] != "figshare.com":
+        from urllib.parse import urlsplit
+        if urlsplit(archive_url).netloc != "figshare.com":
             return None
         return cls(doi, archive_url)
 
@@ -105,7 +121,7 @@ class FigshareRepository(DataRepository):  # pylint: disable=missing-class-docst
         download_url = files[file_name]["download_url"]
         return download_url
 
-    def populate_registry(self, pooch):
+    def create_registry(self):
         """
         Populate the registry using the data repository's API
         Parameters
@@ -113,6 +129,7 @@ class FigshareRepository(DataRepository):  # pylint: disable=missing-class-docst
         pooch : Pooch
             The pooch instance that the registry will be added to.
         """
-        for filedata in self.api_response:
-            pooch.registry[filedata["name"]] = f"md5:{filedata['computed_md5']}"
-
+        #for filedata in self.api_response:
+        #    pooch.registry[filedata["name"]] = f"md5:{filedata['computed_md5']}"
+    def licenses(self):
+        return list()
