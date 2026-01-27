@@ -1,4 +1,4 @@
-from pooch_doi import DataRepository
+from pooch_doi.repository import DataRepository, DEFAULT_TIMEOUT
 
 class FigshareRepository(DataRepository):  # pylint: disable=missing-class-docstring
     @property
@@ -97,7 +97,7 @@ class FigshareRepository(DataRepository):  # pylint: disable=missing-class-docst
             # Make the request and return the files in the figshare repository
             response = requests.get(api_url, timeout=DEFAULT_TIMEOUT)
             response.raise_for_status()
-            self._api_response = response.json()["files"]
+            self._api_response = response.json()
         return self._api_response
 
     def download_url(self, file_name):
@@ -113,7 +113,7 @@ class FigshareRepository(DataRepository):  # pylint: disable=missing-class-docst
         download_url : str
             The HTTP URL that can be used to download the file.
         """
-        files = {item["name"]: item for item in self.api_response}
+        files = {item["name"]: item for item in self.api_response["files"]}
         if file_name not in files:
             raise ValueError(
                 f"File '{file_name}' not found in data archive {self.archive_url} (doi:{self.doi})."
@@ -129,7 +129,8 @@ class FigshareRepository(DataRepository):  # pylint: disable=missing-class-docst
         pooch : Pooch
             The pooch instance that the registry will be added to.
         """
-        #for filedata in self.api_response:
+        #for filedata in self.api_response["files"]:
         #    pooch.registry[filedata["name"]] = f"md5:{filedata['computed_md5']}"
     def licenses(self):
+        self.api_response["license"]
         return list()
