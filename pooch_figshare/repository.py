@@ -1,5 +1,5 @@
 from pooch_doi.repository import DataRepository, DEFAULT_TIMEOUT
-
+import warnings
 class FigshareRepository(DataRepository):  # pylint: disable=missing-class-docstring
     @property
     def name(self) -> str:

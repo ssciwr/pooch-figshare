@@ -30,7 +30,7 @@ class FigshareTestRecord:
 
     class endpoints:
         article_search = _FigshareEndpoint(
-            path=f"/v2/articles?doi=10.6084/m9.figshare.14763051.v1s",
+            path=f"/v2/articles?doi=10.6084/m9.figshare.14763051.v1",
             response=[{"id": 14763051, "title": "Test data for the Pooch library", "doi": "10.6084/m9.figshare.14763051.v1", "handle": "",
             "url": "https://api.figshare.com/v2/articles/14763051", "published_date": "2021-06-10T14:45:37Z", "thumb": "", "defined_type": 3,
             "defined_type_name": "dataset", "group_id": 0, "url_private_api": "https://api.figshare.com/v2/account/articles/14763051",
