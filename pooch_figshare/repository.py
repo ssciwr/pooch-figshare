@@ -90,6 +90,7 @@ class FigshareRepository(DataRepository):  # pylint: disable=missing-class-docst
             else:
                 # Define API url using article id and the desired version
                 # Get list of files using article id and the version
+                #TODO: version edgecase abfangen
                 api_url = (
                     "https://api.figshare.com/v2/articles/"
                     f"{article_id}/versions/{version}"
@@ -121,16 +122,21 @@ class FigshareRepository(DataRepository):  # pylint: disable=missing-class-docst
         download_url = files[file_name]["download_url"]
         return download_url
 
-    def create_registry(self):
+    def create_registry(self) -> dict[str, str]:
         """
-        Populate the registry using the data repository's API
-        Parameters
+        Create a registry dictionary using the data repository's API
+
+        Returns
         ----------
-        pooch : Pooch
-            The pooch instance that the registry will be added to.
+        registry : Dict[str,str]
+            The registry dictionary.
         """
-        #for filedata in self.api_response["files"]:
-        #    pooch.registry[filedata["name"]] = f"md5:{filedata['computed_md5']}"
+        registry: dict[str,str] = dict()
+        for filedata in self.api_response["files"]:
+            registry[filedata["name"]] = f"md5:{filedata['computed_md5']}"
+        return registry
+
     def licenses(self):
         self.api_response["license"]
         return list()
+    
