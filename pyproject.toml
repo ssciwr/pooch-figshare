@@ -33,6 +33,7 @@ dependencies = [
 tests = [
     "pytest",
     "pytest-cov",
+    "requests-mock",
     "nbval",
 ]
 docs = [
