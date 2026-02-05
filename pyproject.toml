@@ -19,7 +19,7 @@ maintainers = [
     { name = "Philipp Rondinone", email = "your@email.com" },
 ]
 dynamic = ["version"]
-requires-python = ">=3.10"
+requires-python = ">=3.9"
 license-files = ["LICEN[CS]E*"]
 license = "BSD-2-Clause"
 classifiers = [
