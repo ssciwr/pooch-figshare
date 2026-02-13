@@ -1,4 +1,6 @@
+from typing import Optional, Dict, Tuple, List
 from pooch_doi.repository import DataRepository, DEFAULT_TIMEOUT
+from pooch_doi.license import *
 import warnings
 class FigshareRepository(DataRepository):  # pylint: disable=missing-class-docstring
     @property
@@ -137,6 +139,12 @@ class FigshareRepository(DataRepository):  # pylint: disable=missing-class-docst
         return registry
 
     def licenses(self):
-        self.api_response["license"]
-        return list()
+        license_data = self.api_response["license"]
+        if not license_data:
+            return list()
+        
+        return License(
+        name=license_data["name"],
+        identifiers=[LicenseIdentifier(scheme=LicenseIdentifierScheme.URL, value=license_data["url"])]
+        )
     

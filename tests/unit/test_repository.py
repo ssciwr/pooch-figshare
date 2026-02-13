@@ -148,3 +148,47 @@ def test_create_registry(
                 repo_tester.repo.create_registry()
         else:
             assert repo_tester.repo.create_registry() == result
+
+licenses_testcases = [
+    # TESTCASE 1: empty API response
+    (
+        True,
+        FigshareTestRecord.endpoints.article_search.response,
+        {"license": {}},
+        list(),
+    ),
+    # TESTCASE 2: with license
+    (
+        False,
+        FigshareTestRecord.endpoints.article_search.response,
+        {"license": 
+            {
+            "value": 1,
+            "name": "CC BY 4.0",
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+            }
+        },
+        License(
+            name="CC BY 4.0",
+            identifiers=[LicenseIdentifier(scheme=LicenseIdentifierScheme.URL, value="https://creativecommons.org/licenses/by/4.0/")]
+            )
+    )
+]
+@pytest.mark.parametrize(
+    "always_mock,search_json_resp,details_json_resp,result", 
+    licenses_testcases
+)
+
+def test_licenses(
+    data_repo_tester,always_mock,search_json_resp,details_json_resp,result
+    ): 
+    repo_tester = data_repo_tester() 
+    with repo_tester.endpoint_mocker(always_mock=always_mock) as m:
+        m.get(FigshareTestRecord.endpoints.article_search.path, json=search_json_resp)
+        m.get("https://api.figshare.com/v2/articles/14763051/versions/1",json=details_json_resp)
+        repo_tester.initialize_repo(doi="10.6084/m9.figshare.14763051.v1", archive_path=FigshareTestRecord.archive_path)
+        if isinstance(result, Exception):
+            with pytest.raises(type(result), match=str(result)):
+                repo_tester.repo.licenses()
+        else:
+            assert repo_tester.repo.licenses() == result
