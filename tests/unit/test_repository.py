@@ -154,10 +154,17 @@ licenses_testcases = [
     (
         True,
         FigshareTestRecord.endpoints.article_search.response,
+        {},
+        KeyError("license"),
+    ),
+    # TESTCASE 2: API response with empty License
+    (
+        True,
+        FigshareTestRecord.endpoints.article_search.response,
         {"license": {}},
         list(),
     ),
-    # TESTCASE 2: with license
+    # TESTCASE 3: API response with license
     (
         False,
         FigshareTestRecord.endpoints.article_search.response,
