@@ -2,8 +2,8 @@
 
 [![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/pooch-figshare//ci.yml?branch=main)](https://github.com/pooch-figshare//actions/workflows/ci.yml)
-[![Documentation Status](https://readthedocs.org/projects//badge/)](https://.readthedocs.io/)
-[![codecov](https://codecov.io/gh/pooch-figshare//branch/main/graph/badge.svg)](https://app.codecov.io/gh/ssciwr/pooch-figshare)
+[![Documentation Status](https://readthedocs.org/projects/pooch-figshare/badge/)](https://pooch-figshare.readthedocs.io/)
+[![codecov](https://codecov.io/gh/ssciwr/pooch-figshare/branch/main/graph/badge.svg)](https://app.codecov.io/gh/ssciwr/pooch-figshare)
 
 ## Installation
 
