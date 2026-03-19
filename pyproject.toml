@@ -64,5 +64,7 @@ write_to = "pooch_figshare/_version.py"
 [tool.pytest.ini_options]
 testpaths = [
     "tests",
-    "notebooks",
 ]
+
+[project.entry-points."pooch.data_repositories"]
+figshare = "pooch_figshare:FigshareRepository"
