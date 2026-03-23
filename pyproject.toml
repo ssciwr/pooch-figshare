@@ -27,14 +27,15 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
+    "pooch-doi @ git+https://github.com/ssciwr/pooch-doi.git@main",
 ]
 
 [project.optional-dependencies]
 tests = [
     "pytest",
     "pytest-cov",
+    "pytest-mock",
     "requests-mock",
-    "nbval",
 ]
 docs = [
     "ipykernel",
@@ -49,8 +50,10 @@ docs = [
 # The following section contains setuptools-specific configuration
 # options. For a full reference of available options, check the overview
 # at https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
-[tool.setuptools.packages.find]
-where = ["pooch_figshare"]
+[tool.setuptools]
+packages = [
+    "pooch_figshare",
+]
 
 # Configure setuptools_scm, which extracts the version number from
 # the version control system. For more information see its documentation:
