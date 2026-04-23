@@ -3,6 +3,21 @@ from pooch_doi.repository import DataRepository, DEFAULT_TIMEOUT
 from pooch_doi.license import *
 import warnings
 class FigshareRepository(DataRepository):  # pylint: disable=missing-class-docstring
+
+    # A URL for an issue tracker for this implementation
+    issue_tracker: Optional[str] = "https://github.com/ssciwr/pooch-figshare/issues"
+
+    # Whether the repository allows self-hosting
+    allows_self_hosting: bool = False
+
+    # Whether this repository is fully supported (meaning that all public data
+    # from this repository is accessible via pooch).
+    full_support: bool = True
+
+    # Whether this implementation performs requests to external services
+    # during initialization. We use this to minimize the execution time.
+    init_requires_requests: bool = false
+    
     @property
     def name(self) -> str:
         """
@@ -17,7 +32,7 @@ class FigshareRepository(DataRepository):  # pylint: disable=missing-class-docst
         This could be the URL of the actual service or the URL of the project,
         if it is a data repository that allows self-hosting.
         """
-        return "placeholder"  # pragma: no cover
+        return "https://figshare.com/"  # pragma: no cover
     
     def __init__(self, doi, archive_url):
         self.archive_url = archive_url
