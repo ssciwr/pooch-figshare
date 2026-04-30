@@ -2,6 +2,8 @@ from typing import Optional, Dict, Tuple, List
 from pooch_doi.repository import DataRepository, DEFAULT_TIMEOUT
 from pooch_doi.license import *
 import warnings
+
+
 class FigshareRepository(DataRepository):  # pylint: disable=missing-class-docstring
 
     # A URL for an issue tracker for this implementation
@@ -16,8 +18,8 @@ class FigshareRepository(DataRepository):  # pylint: disable=missing-class-docst
 
     # Whether this implementation performs requests to external services
     # during initialization. We use this to minimize the execution time.
-    init_requires_requests: bool = false
-    
+    init_requires_requests: bool = False
+
     @property
     def name(self) -> str:
         """
@@ -33,7 +35,7 @@ class FigshareRepository(DataRepository):  # pylint: disable=missing-class-docst
         if it is a data repository that allows self-hosting.
         """
         return "https://figshare.com/"  # pragma: no cover
-    
+
     def __init__(self, doi, archive_url):
         self.archive_url = archive_url
         self.doi = doi
@@ -57,6 +59,7 @@ class FigshareRepository(DataRepository):  # pylint: disable=missing-class-docst
         """
         # Check whether this is a Figshare URL
         from urllib.parse import urlsplit
+
         if urlsplit(archive_url).netloc != "figshare.com":
             return None
         return cls(doi, archive_url)
@@ -82,6 +85,7 @@ class FigshareRepository(DataRepository):  # pylint: disable=missing-class-docst
         if self._api_response is None:
             # Lazy import requests to speed up import time
             import requests  # pylint: disable=C0415
+
             # Use the figshare API to find the article ID from the DOI
             article = requests.get(
                 f"https://api.figshare.com/v2/articles?doi={self.doi}",
@@ -107,7 +111,7 @@ class FigshareRepository(DataRepository):  # pylint: disable=missing-class-docst
             else:
                 # Define API url using article id and the desired version
                 # Get list of files using article id and the version
-                #TODO: version edgecase abfangen
+                # TODO: version edgecase abfangen
                 api_url = (
                     "https://api.figshare.com/v2/articles/"
                     f"{article_id}/versions/{version}"
@@ -148,7 +152,7 @@ class FigshareRepository(DataRepository):  # pylint: disable=missing-class-docst
         registry : Dict[str,str]
             The registry dictionary.
         """
-        registry: dict[str,str] = dict()
+        registry: dict[str, str] = dict()
         for filedata in self.api_response["files"]:
             registry[filedata["name"]] = f"md5:{filedata['computed_md5']}"
         return registry
@@ -157,9 +161,12 @@ class FigshareRepository(DataRepository):  # pylint: disable=missing-class-docst
         license_data = self.api_response["license"]
         if not license_data:
             return list()
-        
+
         return License(
-        name=license_data["name"],
-        identifiers=[LicenseIdentifier(scheme=LicenseIdentifierScheme.URL, value=license_data["url"])]
+            name=license_data["name"],
+            identifiers=[
+                LicenseIdentifier(
+                    scheme=LicenseIdentifierScheme.URL, value=license_data["url"]
+                )
+            ],
         )
-    
