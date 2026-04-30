@@ -13,10 +13,11 @@ build-backend = "setuptools.build_meta"
 # single source of truth for pooch_figshare's version
 [project]
 name = "pooch_figshare"
-description = "Add short description here"
+description = "Figshare support for pooch-doi"
 readme = "README.md"
 maintainers = [
-    { name = "Philipp Rondinone", email = "your@email.com" },
+    { name = "Philipp Rondinone" },
+    { name = "Dominic Kempf", email="ssc@uni-heidelberg.de" },
 ]
 dynamic = ["version"]
 requires-python = ">=3.9"
@@ -36,14 +37,6 @@ tests = [
     "pytest-cov",
     "pytest-mock",
     "requests-mock",
-]
-docs = [
-    "ipykernel",
-    "nbsphinx",
-    "nbsphinx-link",
-    "sphinx",
-    "sphinx_mdinclude",
-    "sphinx_rtd_theme",
 ]
 
 
