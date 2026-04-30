@@ -1,0 +1,29 @@
+repos:
+- repo: https://github.com/psf/black-pre-commit-mirror
+  rev: 25.11.0
+  hooks:
+  - id: black      # Run Black - the uncompromising Python code formatter
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v6.0.0
+  hooks:
+  - id: end-of-file-fixer      # Ensure existence of newline characters at file ends
+  - id: check-yaml      # Make sure that contained YAML files are well-formed
+  - id: trailing-whitespace      # Trim trailing whitespace of all sorts
+  - id: check-added-large-files      # Apply a file size limit of 500kB
+  - id: check-toml      # Simple parser validation of e.g. pyproject.toml
+  - id: mixed-line-ending      # Ensure consistent line endings
+
+- repo: https://github.com/rhysd/actionlint
+  rev: v1.7.8
+  hooks:
+  - id: actionlint      # GitHub Actions Workflow linter
+
+- repo: https://github.com/abravalheri/validate-pyproject
+  rev: v0.24.1
+  hooks:
+  - id: validate-pyproject      # Validate the contents of pyproject.toml
+
+- repo: https://github.com/python-jsonschema/check-jsonschema
+  rev: 0.35.0
+  hooks:
+  - id: check-dependabot      # Validate the given dependabot.yml file
