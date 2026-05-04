@@ -29,6 +29,7 @@ classifiers = [
 ]
 dependencies = [
     "pooch-doi @ git+https://github.com/ssciwr/pooch-doi.git@main",
+    "requests",
 ]
 
 [project.optional-dependencies]
@@ -48,6 +49,9 @@ packages = [
     "pooch_figshare",
 ]
 
+[tool.setuptools.package-data]
+pooch_figshare = ["instances.txt"]
+
 # Configure setuptools_scm, which extracts the version number from
 # the version control system. For more information see its documentation:
 # https://github.com/pypa/setuptools_scm
@@ -64,3 +68,4 @@ testpaths = [
 
 [project.entry-points."pooch.data_repositories"]
 figshare = "pooch_figshare:FigshareRepository"
+known_instances_figshare = "pooch_figshare:KnownInstancesFigshareRepository"

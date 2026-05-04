@@ -1,0 +1,3 @@
+# Additional known Figshare browser base URLs can be listed here.
+# Use one entry per line:
+# https://repository.example.edu https://api.repository.example.edu/v2

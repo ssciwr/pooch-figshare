@@ -180,3 +180,71 @@ class FigshareTestRecord:
                 "resource_doi": None,
             },
         )
+
+
+class ManchesterFigshareTestRecord:
+    @classproperty
+    def doi(cls) -> str:
+        return "10.48420/32055810"
+
+    @classproperty
+    def article_id(cls) -> str:
+        return "32055810"
+
+    @classproperty
+    def archive_path(cls) -> str:
+        return (
+            "/articles/dataset/"
+            "Qubit_dissipated_work_-_used_in_figures_2_and_4/32055810"
+        )
+
+    @classproperty
+    def archive_url(cls) -> str:
+        return f"https://figshare.manchester.ac.uk{cls.archive_path}"
+
+    class endpoints:
+        article_details = _FigshareEndpoint(
+            path="/v2/articles/32055810",
+            response={
+                "files": [
+                    {
+                        "id": 63874299,
+                        "name": "QubitWdiss_term2.json",
+                        "size": 3907,
+                        "is_link_only": False,
+                        "download_url": "https://ndownloader.figshare.com/files/63874299",
+                        "supplied_md5": "5d8588536bdc75fa7fcbbd0d951ed963",
+                        "computed_md5": "5d8588536bdc75fa7fcbbd0d951ed963",
+                        "mimetype": "application/json",
+                    },
+                    {
+                        "id": 63874302,
+                        "name": "QubitWiss_term1.json",
+                        "size": 3771,
+                        "is_link_only": False,
+                        "download_url": "https://ndownloader.figshare.com/files/63874302",
+                        "supplied_md5": "5915aa5380f584d80b912ea4fd7ba424",
+                        "computed_md5": "5915aa5380f584d80b912ea4fd7ba424",
+                        "mimetype": "application/json",
+                    },
+                ],
+                "folder_structure": {},
+                "figshare_url": "https://figshare.manchester.ac.uk/articles/dataset/Qubit_dissipated_work_-_used_in_figures_2_and_4/32055810",
+                "download_disabled": False,
+                "version": 1,
+                "status": "public",
+                "size": 7678,
+                "is_public": True,
+                "license": {
+                    "value": 2,
+                    "name": "CC0",
+                    "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+                },
+                "id": 32055810,
+                "title": "Qubit dissipated work - used in figures 2 and 4",
+                "doi": "10.48420/32055810.v1",
+                "url": "https://api.figshare.com/v2/articles/32055810",
+                "url_public_api": "https://api.figshare.com/v2/articles/32055810",
+                "url_public_html": "https://figshare.manchester.ac.uk/articles/dataset/Qubit_dissipated_work_-_used_in_figures_2_and_4/32055810",
+            },
+        )
