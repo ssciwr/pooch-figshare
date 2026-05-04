@@ -4,7 +4,7 @@
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/ssciwr/pooch-figshare/ci.yml?branch=main)](https://github.com/pooch-figshare//actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/ssciwr/pooch-figshare/branch/main/graph/badge.svg)](https://app.codecov.io/gh/ssciwr/pooch-figshare)
 
-`pooch-figshare` adds support for the [FigShare data repositry](https://figshare.com/) (and its self-hosted variants)
+`pooch-figshare` adds support for the [Figshare data repository](https://figshare.com/) (and its self-hosted variants)
 to the [pooch-doi](https://github.com/ssciwr/pooch-doi) ecosystem.
 
 ## Installation

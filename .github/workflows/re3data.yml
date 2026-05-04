@@ -1,0 +1,24 @@
+name: Update re3data Instances
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Monthly, on the first day of each month at 00:00 UTC.
+    - cron: "0 0 1 * *"
+
+jobs:
+  update-instances:
+    name: Update instances.txt from re3data
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v6
+
+    - name: Scrape re3data for Figshare instances
+      uses: ssciwr/pooch-re3data-action@v1
+      with:
+        software: "figshare"
+        filename: "pooch_figshare/instances.txt"
