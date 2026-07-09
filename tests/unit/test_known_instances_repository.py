@@ -1,5 +1,5 @@
-import pooch_figshare.repository as repository
-from pooch_figshare import KnownInstancesFigshareRepository
+import doiggie_figshare.repository as repository
+from doiggie_figshare import KnownInstancesFigshareRepository
 from tests.data.figshare_record import FigshareTestRecord, ManchesterFigshareTestRecord
 
 

@@ -1,4 +1,4 @@
-This is the list of copyright holders of pooch-figshare.
+This is the list of copyright holders of doiggie-figshare.
 
 For information on the license, see LICENSE.md.
 

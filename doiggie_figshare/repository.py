@@ -5,8 +5,8 @@ from typing import Dict, List, Optional, Tuple
 from urllib.parse import urlsplit, urlunsplit
 import warnings
 
-from pooch_doi.license import *
-from pooch_doi.repository import DEFAULT_TIMEOUT, DataRepository
+from doiggie.license import *
+from doiggie.repository import DEFAULT_TIMEOUT, DataRepository
 
 
 PUBLIC_FIGSHARE_API_BASE_URL = "https://api.figshare.com/v2"
@@ -26,7 +26,7 @@ class FigshareRepository(DataRepository):  # pylint: disable=missing-class-docst
     allowed_exceptions: Tuple[type[Exception], ...] = ()
 
     # A URL for an issue tracker for this implementation
-    issue_tracker: Optional[str] = "https://github.com/ssciwr/pooch-figshare/issues"
+    issue_tracker: Optional[str] = "https://github.com/ssciwr/doiggie-figshare/issues"
 
     # Whether the repository allows self-hosting
     allows_self_hosting: bool = True
@@ -221,7 +221,7 @@ class FigshareRepository(DataRepository):  # pylint: disable=missing-class-docst
                 "User-Agent": (
                     "pooch/1.8.2 "
                     "(https://github.com/fatiando/pooch; "
-                    "https://github.com/ssciwr/pooch-figshare)"
+                    "https://github.com/ssciwr/doiggie-figshare)"
                 )
             }
         )
@@ -248,7 +248,7 @@ class FigshareRepository(DataRepository):  # pylint: disable=missing-class-docst
             raise RuntimeError(
                 f"An issue occurred decoding the JSON response from '{url}'. "
                 "This should not happen. "
-                "Please open an issue at https://github.com/ssciwr/pooch-figshare/issues"
+                "Please open an issue at https://github.com/ssciwr/doiggie-figshare/issues"
             ) from exc
 
     @classmethod
@@ -450,7 +450,7 @@ class FigshareRepository(DataRepository):  # pylint: disable=missing-class-docst
 
 @lru_cache(maxsize=1)
 def _known_figshare_instances() -> dict[str, str]:
-    instances_file = files("pooch_figshare").joinpath("instances.txt")
+    instances_file = files("doiggie_figshare").joinpath("instances.txt")
     instances = dict()
     for line in instances_file.read_text(encoding="utf-8").splitlines():
         line = line.strip()

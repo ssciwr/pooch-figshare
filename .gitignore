@@ -1,6 +1,6 @@
 
 # Ignore setuptools_scm generated version file
-pooch_figshare/_version.py
+doiggie_figshare/_version.py
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

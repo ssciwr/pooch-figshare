@@ -4,8 +4,8 @@ import pytest
 
 from tests.data.figshare_record import FigshareTestRecord, ManchesterFigshareTestRecord
 
-from pooch_doi.license import *
-from pooch_figshare.repository import (
+from doiggie.license import *
+from doiggie_figshare.repository import (
     PUBLIC_FIGSHARE_API_BASE_URL,
     FigshareRepository,
 )

@@ -1,19 +1,19 @@
-# Welcome to pooch-figshare
+# Welcome to doiggie-figshare
 
 [![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/ssciwr/pooch-figshare/ci.yml?branch=main)](https://github.com/pooch-figshare//actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/ssciwr/pooch-figshare/branch/main/graph/badge.svg)](https://app.codecov.io/gh/ssciwr/pooch-figshare)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/ssciwr/doiggie-figshare/ci.yml?branch=main)](https://github.com/ssciwr/doiggie-figshare/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/ssciwr/doiggie-figshare/branch/main/graph/badge.svg)](https://app.codecov.io/gh/ssciwr/doiggie-figshare)
 
-`pooch-figshare` adds support for the [Figshare data repository](https://figshare.com/) (and its self-hosted variants)
-to the [pooch-doi](https://github.com/ssciwr/pooch-doi) ecosystem.
+`doiggie-figshare` adds support for the [Figshare data repository](https://figshare.com/) (and its self-hosted variants)
+to the [doiggie](https://github.com/ssciwr/doiggie) ecosystem.
 
 ## Installation
 
-The Python package `pooch_figshare` can be installed from PyPI:
+The Python package `doiggie_figshare` can be installed from PyPI:
 
 ```
-python -m pip install pooch_figshare
+python -m pip install doiggie_figshare
 ```
 
-If you want to install all available data repository implementations for `pooch-doi`,
-consider install [pooch-repositories](https://github.com/ssciwr/pooch-repositories) instead.
+If you want to install all available data repository implementations for `doiggie`,
+consider installing [doiggie-repositories](https://github.com/ssciwr/doiggie-repositories) instead.

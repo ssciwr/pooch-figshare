@@ -21,4 +21,4 @@ jobs:
       uses: ssciwr/pooch-re3data-action@v1
       with:
         software: "figshare"
-        filename: "pooch_figshare/instances.txt"
+        filename: "doiggie_figshare/instances.txt"

@@ -37,7 +37,7 @@ jobs:
 
     - name: Install Python package
       run: |
-        python -m pip install git+https://github.com/ssciwr/pooch-doi.git@main
+        python -m pip install git+https://github.com/ssciwr/doiggie.git@main
         python -m pip install .[tests]
 
     - name: Run Python tests
@@ -58,7 +58,7 @@ jobs:
 
     - name: Install Python package
       run: |
-        python -m pip install git+https://github.com/ssciwr/pooch-doi.git@main
+        python -m pip install git+https://github.com/ssciwr/doiggie.git@main
         python -m pip install .[tests]
 
     - name: Run Python tests

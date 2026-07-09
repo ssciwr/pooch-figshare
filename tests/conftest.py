@@ -1,10 +1,10 @@
 import pytest
-from pooch_figshare.repository import (
+from doiggie_figshare.repository import (
     FigshareRepository,
     KnownInstancesFigshareRepository,
 )
 
-pytest_plugins = ["pooch_doi.testkit"]
+pytest_plugins = ["doiggie.testkit"]
 
 
 @pytest.fixture
