@@ -15,7 +15,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
 
     - name: Scrape re3data for Figshare instances
       uses: ssciwr/pooch-re3data-action@v1
