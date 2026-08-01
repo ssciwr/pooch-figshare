@@ -11,7 +11,6 @@ https://data.lib.vt.edu/
 https://data.lincoln.ac.nz/
 https://data.ncl.ac.uk/
 https://datahub.hku.hk/
-https://dataverse.nl/dataverse/eur
 https://dayta.nwu.ac.za/
 https://esango.cput.ac.za/
 https://federation.figshare.com/
@@ -23,6 +22,7 @@ https://figshare.scilifelab.se/
 https://figshare.swinburne.edu.au/
 https://grantsdata.jst.go.jp/
 https://gsapubs.figshare.com/
+https://hsrc-repository.figshare.com/
 https://iastate.figshare.com/
 https://kcl.figshare.com/
 https://kikapu.uwc.ac.za/
